@@ -34,7 +34,7 @@ services:
     command: yarn start
     # bind mount
     volumes:
-      - ./my_react_route:/mern-app/client
+      - ./my_umi_app:/mern-app/client
       - /mern-app/client/node_modules
   broker:
     build:
