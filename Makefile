@@ -19,4 +19,4 @@ own:
 	sudo chmod -R 777 .
 	sudo chmod 666 /var/run/docker.sock
 pull:
-	git pull https://github.com/ngminhthanh12a3/api-test-master.git
+	git pull https://github.com/ngminhthanh12a3/admin-dashboard.git
