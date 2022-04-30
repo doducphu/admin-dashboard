@@ -16,7 +16,7 @@ const getNoticeData = (notices) => {
     const newNotice = { ...notice };
 
     if (newNotice.datetime) {
-      newNotice.datetime = moment(notice.datetime).fromNow();
+      newNotice.datetime = moment(notice.datetime).locale('en-US').fromNow();
     }
 
     if (newNotice.id) {
