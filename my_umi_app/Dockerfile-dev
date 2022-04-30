@@ -3,7 +3,7 @@ FROM node:16
 WORKDIR /mern-app/client
 
 COPY package.json .
-COPY yarn.lock .
+# COPY yarn.lock .
 
 # install node_modules
 # RUN npm i -g yarn@latest 
