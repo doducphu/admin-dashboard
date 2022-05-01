@@ -14,7 +14,7 @@ import Footer from '@/components/Footer';
 import { login } from '@/services/ant-design-pro/api';
 import { getFakeCaptcha } from '@/services/ant-design-pro/login';
 import styles from './index.less';
-
+import { fetchAPI_JSONData } from '../../../handlers';
 const LoginMessage = ({ content }) => (
   <Alert
     style={{
@@ -44,6 +44,7 @@ const Login = () => {
     try {
       // 登录
       const msg = await login({ ...values, type });
+      // console.log(await fetchAPI_JSONData(values));
 
       if (msg.status === 'ok') {
         const defaultLoginSuccessMessage = intl.formatMessage({
