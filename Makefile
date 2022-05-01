@@ -10,11 +10,11 @@ dev-up-build:
 
 # ---------------
 dev-prop-up:
-	docker-compose -f docker-compose.yml -f docker-compose.dev.prop.yml up -d
+	COMPOSE_HTTP_TIMEOUT=120 docker-compose -f docker-compose.yml -f docker-compose.dev.prop.yml up -d
 dev-prop-down:
 	docker-compose -f docker-compose.yml -f docker-compose.dev.prop.yml down
 dev-prop-up-build:
-	docker-compose -f docker-compose.yml -f docker-compose.dev.prop.yml up -d --build
+	COMPOSE_HTTP_TIMEOUT=120 docker-compose -f docker-compose.yml -f docker-compose.dev.prop.yml up -d --build
 own:
 	sudo chmod -R 777 .
 	sudo chmod 666 /var/run/docker.sock
