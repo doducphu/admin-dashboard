@@ -81,6 +81,7 @@ const Login = () => {
       </div>
       <div className={styles.content}>
         <LoginForm
+          submitter={{ searchConfig: { submitText: 'Submit', restText: 'Submit' } }}
           logo={<img alt="logo" src="/logo.svg" />}
           title="Admin Dashboard"
           subTitle={intl.formatMessage({

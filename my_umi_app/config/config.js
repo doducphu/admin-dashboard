@@ -10,19 +10,20 @@ export default defineConfig({
   dva: {
     hmr: true,
   },
-  layout: {
-    // https://umijs.org/zh-CN/plugins/plugin-layout
-    locale: true,
-    siderWidth: 208,
-    ...defaultSettings,
-  },
   // https://umijs.org/zh-CN/plugins/plugin-locale
   locale: {
     // default zh-CN
     default: 'en-US',
-    antd: true,
+    antd: false,
     // default true, when it is true, will use `navigator.language` overwrite default
     baseNavigator: true,
+  },
+  layout: {
+    // https://umijs.org/zh-CN/plugins/plugin-layout
+    locale: true,
+    Locales: true,
+    siderWidth: 208,
+    ...defaultSettings,
   },
   dynamicImport: {
     loading: '@ant-design/pro-layout/es/PageLoading',

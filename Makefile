@@ -1,12 +1,12 @@
 dev-up:
-	docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d
+	COMPOSE_HTTP_TIMEOUT=120 docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d
 dev-down:
 	docker-compose -f docker-compose.yml -f docker-compose.dev.yml down
 prune:
 	docker volume prune
 	docker image prune
 dev-up-build:
-	docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build
+	COMPOSE_HTTP_TIMEOUT=120 docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build
 
 # ---------------
 dev-prop-up:
