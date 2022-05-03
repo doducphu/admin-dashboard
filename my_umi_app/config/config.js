@@ -14,7 +14,7 @@ export default defineConfig({
   locale: {
     // default zh-CN
     default: 'en-US',
-    antd: false,
+    antd: true,
     // default true, when it is true, will use `navigator.language` overwrite default
     baseNavigator: true,
   },
@@ -68,6 +68,7 @@ export default defineConfig({
       path: '/dashboard',
       name: 'dashboard',
       icon: 'dashboard',
+      access: 'canAdmin',
       routes: [
         {
           name: 'Analysis',
@@ -75,18 +76,18 @@ export default defineConfig({
           path: '/dashboard/analysis',
           component: './dashboard/analysis',
         },
-        // {
-        //   name: 'monitor',
-        //   icon: 'smile',
-        //   path: '/dashboard/monitor',
-        //   component: './dashboard/monitor',
-        // },
-        // {
-        //   name: 'workplace',
-        //   icon: 'smile',
-        //   path: '/dashboard/workplace',
-        //   component: './dashboard/workplace',
-        // },
+        {
+          name: 'monitor',
+          icon: 'smile',
+          path: '/dashboard/monitor',
+          component: './dashboard/monitor',
+        },
+        {
+          name: 'workplace',
+          icon: 'smile',
+          path: '/dashboard/workplace',
+          component: './dashboard/workplace',
+        },
       ],
     },
     // {

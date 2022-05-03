@@ -8,7 +8,7 @@ const rankingListData = [];
 
 for (let i = 0; i < 7; i += 1) {
   rankingListData.push({
-    title: `工专路 ${i} 号店`,
+    title: `Industrial Road ${i} Haodian`,
     total: 323234,
   });
 }
@@ -60,7 +60,7 @@ const SalesCard = ({
           marginBottom: 24,
         }}
       >
-        <TabPane tab="销售额" key="sales">
+        <TabPane tab="Sales" key="sales">
           <Row>
             <Col xl={16} lg={12} md={12} sm={24} xs={24}>
               <div className={styles.salesBar}>
@@ -84,14 +84,14 @@ const SalesCard = ({
                   }}
                   title={{
                     visible: true,
-                    text: '销售趋势',
+                    text: 'Sales trend',
                     style: {
                       fontSize: 14,
                     },
                   }}
                   meta={{
                     y: {
-                      alias: '销售量',
+                      alias: 'Sales volume',
                     },
                   }}
                 />
@@ -119,7 +119,7 @@ const SalesCard = ({
             </Col>
           </Row>
         </TabPane>
-        <TabPane tab="访问量" key="views">
+        <TabPane tab="Views" key="views">
           <Row>
             <Col xl={16} lg={12} md={12} sm={24} xs={24}>
               <div className={styles.salesBar}>
@@ -143,14 +143,14 @@ const SalesCard = ({
                   }}
                   title={{
                     visible: true,
-                    text: '访问量趋势',
+                    text: 'Traffic trends',
                     style: {
                       fontSize: 14,
                     },
                   }}
                   meta={{
                     y: {
-                      alias: '访问量',
+                      alias: 'Views',
                     },
                   }}
                 />

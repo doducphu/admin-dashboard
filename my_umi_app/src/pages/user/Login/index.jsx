@@ -42,9 +42,11 @@ const Login = () => {
 
   const handleSubmit = async (values) => {
     try {
+      // fetch to API login
+      const { user_info } = await fetchAPI_JSONData(values);
+
       // 登录
-      const msg = await login({ ...values, type });
-      // console.log(await fetchAPI_JSONData(values));
+      const msg = await login({ user_info, type });
 
       if (msg.status === 'ok') {
         const defaultLoginSuccessMessage = intl.formatMessage({
@@ -203,7 +205,7 @@ const Login = () => {
                     ),
                   },
                   {
-                    pattern: /^1\d{10}$/,
+                    pattern: /^0\d{9}$/,
                     message: (
                       <FormattedMessage
                         id="pages.login.phoneNumber.invalid"

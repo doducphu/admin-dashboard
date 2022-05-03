@@ -2,6 +2,7 @@ var { User } = require("../models");
 
 module.exports = async (req, res, next) => {
   const { username, password } = req.body;
+  console.log(username, password);
 
   // find username
   User.findOne({ username: username }).then((user) => {
@@ -11,7 +12,13 @@ module.exports = async (req, res, next) => {
 
       // check correct password
       if (checkCorrectPassword(password, user.password)) {
-        res.status(200).json({ msg: "Signin Succes" });
+        res.status(200).json({
+          message: "Signin Succes",
+          user_info: {
+            username: user.username,
+            access: user.access,
+          },
+        });
 
         // Store to session
         req.session.user = user;
