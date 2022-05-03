@@ -28,7 +28,7 @@ services:
         PORT: ${PORT}
     environment:
       - PORT=3003
-      - REACT_APP_API_URL=http://113.161.225.11:3004
+      - UMI_APP_API_URL=http://113.161.225.11:3004
     ports:
       - "3003:3003"
     command: yarn start
