@@ -2,7 +2,10 @@ const { server } = require("./www");
 const { Server } = require("socket.io");
 const io = new Server(server, {
   cors: {
-    origin: process.env.CLIENT_URL || "htts://localhost:3000",
+    origin: [
+      process.env.CLIENT_URL || "https://localhost:3000",
+      "http://localhost:8003",
+    ],
     credentials: true,
   },
 });

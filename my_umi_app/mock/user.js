@@ -18,7 +18,7 @@ const { ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION } = process.env;
  * 如果是 pro 的预览，默认是有权限的
  */
 
-let access = ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION === 'site' ? 'guest' : '';
+let access = ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION === 'site' ? 'admin' : '';
 
 const getAccess = () => {
   return access;
@@ -33,7 +33,7 @@ export default {
           isLogin: false,
         },
         errorCode: '401',
-        errorMessage: 'Please login first!',
+        errorMessage: '请先登录！',
         success: true,
       });
       return;
@@ -42,7 +42,7 @@ export default {
     res.send({
       success: true,
       data: {
-        name: access,
+        name: 'Serati Ma',
         avatar: 'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
         userid: '00000001',
         email: 'antdesign@alipay.com',
@@ -116,16 +116,26 @@ export default {
     },
   ],
   'POST /api/login/account': async (req, res) => {
-    const { user_info, type } = req.body;
+    const { password, username, type } = req.body;
     await waitTime(2000);
 
-    if (user_info) {
+    if (password === 'ant.design' && username === 'admin') {
       res.send({
         status: 'ok',
         type,
-        currentAuthority: user_info.access,
+        currentAuthority: 'admin',
       });
-      access = user_info.access;
+      access = 'admin';
+      return;
+    }
+
+    if (password === 'ant.design' && username === 'user') {
+      res.send({
+        status: 'ok',
+        type,
+        currentAuthority: 'user',
+      });
+      access = 'user';
       return;
     }
 

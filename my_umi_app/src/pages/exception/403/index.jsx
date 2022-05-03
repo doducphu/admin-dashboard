@@ -10,7 +10,7 @@ export default () => (
     subTitle="Sorry, you don't have access to this page."
     extra={
       <Link to="/">
-        <Button type="primary"></Button>
+        <Button type="primary">Back to home</Button>
       </Link>
     }
   />

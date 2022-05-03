@@ -14,7 +14,7 @@ import Footer from '@/components/Footer';
 import { login } from '@/services/ant-design-pro/api';
 import { getFakeCaptcha } from '@/services/ant-design-pro/login';
 import styles from './index.less';
-import { fetchAPI_JSONData } from '../../../handlers';
+
 const LoginMessage = ({ content }) => (
   <Alert
     style={{
@@ -42,11 +42,8 @@ const Login = () => {
 
   const handleSubmit = async (values) => {
     try {
-      // fetch to API login
-      const { user_info } = await fetchAPI_JSONData(values);
-
       // 登录
-      const msg = await login({ user_info, type });
+      const msg = await login({ ...values, type });
 
       if (msg.status === 'ok') {
         const defaultLoginSuccessMessage = intl.formatMessage({
@@ -68,7 +65,6 @@ const Login = () => {
 
       setUserLoginState(msg);
     } catch (error) {
-      console.log(error);
       const defaultLoginFailureMessage = intl.formatMessage({
         id: 'pages.login.failure',
         defaultMessage: '登录失败，请重试！',
@@ -85,9 +81,8 @@ const Login = () => {
       </div>
       <div className={styles.content}>
         <LoginForm
-          submitter={{ searchConfig: { submitText: 'Submit', restText: 'Submit' } }}
           logo={<img alt="logo" src="/logo.svg" />}
-          title="Admin Dashboard"
+          title="Ant Design"
           subTitle={intl.formatMessage({
             id: 'pages.layouts.userLayout.title',
           })}
@@ -129,7 +124,7 @@ const Login = () => {
             <LoginMessage
               content={intl.formatMessage({
                 id: 'pages.login.accountLogin.errorMessage',
-                defaultMessage: '账户或密码错误(admin/123)',
+                defaultMessage: '账户或密码错误(admin/ant.design)',
               })}
             />
           )}
@@ -165,7 +160,7 @@ const Login = () => {
                 }}
                 placeholder={intl.formatMessage({
                   id: 'pages.login.password.placeholder',
-                  defaultMessage: '密码: 123',
+                  defaultMessage: '密码: ant.design',
                 })}
                 rules={[
                   {
@@ -206,7 +201,7 @@ const Login = () => {
                     ),
                   },
                   {
-                    pattern: /^0\d{9}$/,
+                    pattern: /^1\d{10}$/,
                     message: (
                       <FormattedMessage
                         id="pages.login.phoneNumber.invalid"
@@ -262,9 +257,7 @@ const Login = () => {
                     return;
                   }
 
-                  message.success(
-                    'Get the verification code successfully! The verification code is: 1234',
-                  );
+                  message.success('获取验证码成功！验证码为：1234');
                 }}
               />
             </>

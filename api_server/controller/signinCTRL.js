@@ -2,7 +2,6 @@ var { User } = require("../models");
 
 module.exports = async (req, res, next) => {
   const { username, password } = req.body;
-  console.log(username, password);
 
   // find username
   User.findOne({ username: username }).then((user) => {

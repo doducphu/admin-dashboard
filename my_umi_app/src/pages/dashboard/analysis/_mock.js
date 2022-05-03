@@ -25,7 +25,7 @@ const salesData = [];
 
 for (let i = 0; i < 12; i += 1) {
   salesData.push({
-    x: `${i + 1}Month`,
+    x: `${i + 1}月`,
     y: Math.floor(Math.random() * 1000) + 200,
   });
 }
@@ -35,7 +35,7 @@ const searchData = [];
 for (let i = 0; i < 50; i += 1) {
   searchData.push({
     index: i + 1,
-    keyword: `Search keyword-${i}`,
+    keyword: `搜索关键词-${i}`,
     count: Math.floor(Math.random() * 1000),
     range: Math.floor(Math.random() * 100),
     status: Math.floor((Math.random() * 10) % 2),
@@ -44,75 +44,75 @@ for (let i = 0; i < 50; i += 1) {
 
 const salesTypeData = [
   {
-    x: 'Household appliances',
+    x: '家用电器',
     y: 4544,
   },
   {
-    x: 'Drinking water',
+    x: '食用酒水',
     y: 3321,
   },
   {
-    x: 'Personal health',
+    x: '个护健康',
     y: 3113,
   },
   {
-    x: 'Clothing bags',
+    x: '服饰箱包',
     y: 2341,
   },
   {
-    x: 'Mother and baby products',
+    x: '母婴产品',
     y: 1231,
   },
   {
-    x: 'Other',
+    x: '其他',
     y: 1231,
   },
 ];
 const salesTypeDataOnline = [
   {
-    x: 'Household appliances',
+    x: '家用电器',
     y: 244,
   },
   {
-    x: 'Drinking water',
+    x: '食用酒水',
     y: 321,
   },
   {
-    x: 'Personal health',
+    x: '个护健康',
     y: 311,
   },
   {
-    x: 'Clothing bags',
+    x: '服饰箱包',
     y: 41,
   },
   {
-    x: 'Mother and baby products',
+    x: '母婴产品',
     y: 121,
   },
   {
-    x: 'Other',
+    x: '其他',
     y: 111,
   },
 ];
 const salesTypeDataOffline = [
   {
-    x: 'Household appliances',
+    x: '家用电器',
     y: 99,
   },
   {
-    x: 'Drinking water',
+    x: '食用酒水',
     y: 188,
   },
   {
-    x: 'Personal health',
+    x: '个护健康',
     y: 344,
   },
   {
-    x: 'Clothing bags',
+    x: '服饰箱包',
     y: 255,
   },
   {
-    x: 'Mother and baby products',
+    x: '其他',
     y: 65,
   },
 ];
@@ -131,19 +131,19 @@ for (let i = 0; i < 20; i += 1) {
   const date = moment(new Date().getTime() + 1000 * 60 * 30 * i).format('HH:mm');
   offlineChartData.push({
     date,
-    type: 'Passenger flow',
+    type: '客流量',
     value: Math.floor(Math.random() * 100) + 10,
   });
   offlineChartData.push({
     date,
-    type: 'Number of payments',
+    type: '支付笔数',
     value: Math.floor(Math.random() * 100) + 10,
   });
 }
 
 const radarOriginData = [
   {
-    name: 'Personal',
+    name: '个人',
     ref: 10,
     koubei: 8,
     output: 4,
@@ -151,7 +151,7 @@ const radarOriginData = [
     hot: 7,
   },
   {
-    name: 'Team',
+    name: '团队',
     ref: 3,
     koubei: 9,
     output: 6,
@@ -159,7 +159,7 @@ const radarOriginData = [
     hot: 1,
   },
   {
-    name: 'Department',
+    name: '部门',
     ref: 4,
     koubei: 1,
     output: 6,
@@ -169,11 +169,11 @@ const radarOriginData = [
 ];
 const radarData = [];
 const radarTitleMap = {
-  ref: 'Quote',
-  koubei: 'Word of mouth',
-  output: 'Yield',
-  contribute: 'Contribute',
-  hot: 'Heat',
+  ref: '引用',
+  koubei: '口碑',
+  output: '产量',
+  contribute: '贡献',
+  hot: '热度',
 };
 radarOriginData.forEach((item) => {
   Object.keys(item).forEach((key) => {

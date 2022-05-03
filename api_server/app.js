@@ -40,6 +40,7 @@ app.use(
     origin: [
       process.env.CLIENT_URL || "http://localhost:3000",
       "http://10.10.10.23:3000",
+      "http://localhost:8003"
     ],
     methods: ["GET", "POST"],
     credentials: true,

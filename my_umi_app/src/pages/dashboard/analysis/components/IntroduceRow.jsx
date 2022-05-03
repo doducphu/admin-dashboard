@@ -22,15 +22,15 @@ const IntroduceRow = ({ loading, visitData }) => (
     <Col {...topColResponsiveProps}>
       <ChartCard
         bordered={false}
-        title="Total sales"
+        title="总销售额"
         action={
-          <Tooltip title="Indicator description">
+          <Tooltip title="指标说明">
             <InfoCircleOutlined />
           </Tooltip>
         }
         loading={loading}
         total={() => <Yuan>126560</Yuan>}
-        footer={<Field label="Daily sales" value={`￥${numeral(12423).format('0,0')}`} />}
+        footer={<Field label="日销售额" value={`￥${numeral(12423).format('0,0')}`} />}
         contentHeight={46}
       >
         <Trend
@@ -39,11 +39,11 @@ const IntroduceRow = ({ loading, visitData }) => (
             marginRight: 16,
           }}
         >
-          Week-on-week
+          周同比
           <span className={styles.trendText}>12%</span>
         </Trend>
         <Trend flag="down">
-          Day-to-day
+          日同比
           <span className={styles.trendText}>11%</span>
         </Trend>
       </ChartCard>
@@ -53,14 +53,14 @@ const IntroduceRow = ({ loading, visitData }) => (
       <ChartCard
         bordered={false}
         loading={loading}
-        title="Views"
+        title="访问量"
         action={
-          <Tooltip title="Indicator description">
+          <Tooltip title="指标说明">
             <InfoCircleOutlined />
           </Tooltip>
         }
         total={numeral(8846).format('0,0')}
-        footer={<Field label="Daily visits" value={numeral(1234).format('0,0')} />}
+        footer={<Field label="日访问量" value={numeral(1234).format('0,0')} />}
         contentHeight={46}
       >
         <TinyArea
@@ -78,14 +78,14 @@ const IntroduceRow = ({ loading, visitData }) => (
       <ChartCard
         bordered={false}
         loading={loading}
-        title="Number of payments"
+        title="支付笔数"
         action={
-          <Tooltip title="Indicator description">
+          <Tooltip title="指标说明">
             <InfoCircleOutlined />
           </Tooltip>
         }
         total={numeral(6560).format('0,0')}
-        footer={<Field label="Conversion rates" value="60%" />}
+        footer={<Field label="转化率" value="60%" />}
         contentHeight={46}
       >
         <TinyColumn xField="x" height={46} forceFit yField="y" data={visitData} />
@@ -95,9 +95,9 @@ const IntroduceRow = ({ loading, visitData }) => (
       <ChartCard
         loading={loading}
         bordered={false}
-        title="Operational activity effect"
+        title="运营活动效果"
         action={
-          <Tooltip title="Indicator description">
+          <Tooltip title="指标说明">
             <InfoCircleOutlined />
           </Tooltip>
         }
@@ -115,11 +115,11 @@ const IntroduceRow = ({ loading, visitData }) => (
                 marginRight: 16,
               }}
             >
-              Week-on-week
+              周同比
               <span className={styles.trendText}>12%</span>
             </Trend>
             <Trend flag="down">
-              Day-to-day
+              日同比
               <span className={styles.trendText}>11%</span>
             </Trend>
           </div>

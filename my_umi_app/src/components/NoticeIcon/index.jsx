@@ -16,7 +16,7 @@ const getNoticeData = (notices) => {
     const newNotice = { ...notice };
 
     if (newNotice.datetime) {
-      newNotice.datetime = moment(notice.datetime).locale('en-US').fromNow();
+      newNotice.datetime = moment(notice.datetime).fromNow();
     }
 
     if (newNotice.id) {
@@ -100,7 +100,7 @@ const NoticeIconView = () => {
         return notice;
       }),
     );
-    message.success(`${'Emptied'} ${title}`);
+    message.success(`${'清空了'} ${title}`);
   };
 
   return (
@@ -112,8 +112,8 @@ const NoticeIconView = () => {
       }}
       onClear={(title, key) => clearReadState(title, key)}
       loading={false}
-      clearText="Empty"
-      viewMoreText="See more"
+      clearText="清空"
+      viewMoreText="查看更多"
       onViewMore={() => message.info('Click on view more')}
       clearClose
     >
@@ -121,22 +121,22 @@ const NoticeIconView = () => {
         tabKey="notification"
         count={unreadMsg.notification}
         list={noticeData.notification}
-        title="Notice"
-        emptyText="You have viewed all notifications"
+        title="通知"
+        emptyText="你已查看所有通知"
         showViewMore
       />
       <NoticeIcon.Tab
         tabKey="message"
         count={unreadMsg.message}
         list={noticeData.message}
-        title="Information"
-        emptyText="You have read all messages"
+        title="消息"
+        emptyText="您已读完所有消息"
         showViewMore
       />
       <NoticeIcon.Tab
         tabKey="event"
-        title="Upcoming"
-        emptyText="You have done all to do"
+        title="待办"
+        emptyText="你已完成所有待办"
         count={unreadMsg.event}
         list={noticeData.event}
         showViewMore
