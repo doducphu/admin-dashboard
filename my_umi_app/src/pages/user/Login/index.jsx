@@ -42,6 +42,7 @@ const Login = () => {
 
   const handleSubmit = async (values) => {
     try {
+      console.login(process.env.REACT_APP_API_URL);
       // fetch to API login
       const { user_info } = await fetchAPI_JSONData(values);
 
