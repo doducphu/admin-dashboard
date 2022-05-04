@@ -1,10 +1,10 @@
 import { SettingDrawer } from '@ant-design/pro-layout';
 import { PageLoading } from '@ant-design/pro-layout';
-import { history, Link } from 'umi';
+import { history, getLocale, setLocale } from 'umi';
 import RightContent from '@/components/RightContent';
 import Footer from '@/components/Footer';
 import { currentUser as queryCurrentUser } from './services/ant-design-pro/api';
-import { BookOutlined, LinkOutlined } from '@ant-design/icons';
+import Exception403 from '@/pages/exception/403';
 import defaultSettings from '../config/defaultSettings';
 const isDev = process.env.NODE_ENV === 'development';
 const loginPath = '/user/login';
@@ -18,6 +18,7 @@ export const initialStateConfig = {
  * */
 
 export async function getInitialState() {
+  if (getLocale().includes('en')) setLocale('en-US');
   const fetchUserInfo = async () => {
     try {
       const msg = await queryCurrentUser();
@@ -61,19 +62,19 @@ export const layout = ({ initialState, setInitialState }) => {
     },
     links: isDev
       ? [
-          <Link key="openapi" to="/umi/plugin/openapi" target="_blank">
-            <LinkOutlined />
-            <span>OpenAPI 文档</span>
-          </Link>,
-          <Link to="/~docs" key="docs">
-            <BookOutlined />
-            <span>业务组件文档</span>
-          </Link>,
+          // <Link key="openapi" to="/umi/plugin/openapi" target="_blank">
+          //   <LinkOutlined />
+          //   <span>OpenAPI 文档</span>
+          // </Link>,
+          // <Link to="/~docs" key="docs">
+          //   <BookOutlined />
+          //   <span>业务组件文档</span>
+          // </Link>,
         ]
       : [],
     menuHeaderRender: undefined,
     // 自定义 403 页面
-    // unAccessible: <div>unAccessible</div>,
+    unAccessible: <Exception403 />,
     // 增加一个 loading 的状态
     childrenRender: (children, props) => {
       // if (initialState?.loading) return <PageLoading />;

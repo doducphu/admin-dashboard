@@ -9,14 +9,18 @@ import { queryTags } from './service';
 import styles from './style.less';
 import { io } from 'socket.io-client';
 import { API_URL } from '@/constants';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 const socket = io(API_URL, { withCredentials: true });
 const { Countdown } = Statistic;
 const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30; // Moment is also OK
 
 const Monitor = () => {
+  const [deviceInfo, setDeviceInfo] = useState({});
   useEffect(() => {
-    socket.on('encryptDT', (message) => console.log(message));
+    socket.on('encryptDT', (message) => {
+      setDeviceInfo((prevState) => ({ ...prevState, ...message }));
+      console.log(deviceInfo);
+    });
   }, []);
   const { loading, data } = useRequest(queryTags);
   const wordCloudData = (data?.list || []).map((item) => {
