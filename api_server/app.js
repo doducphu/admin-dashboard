@@ -21,6 +21,7 @@ var {
   checkSigninRouter,
   homeRouter,
   usersRouter,
+  refRouter,
 } = require("./routes");
 
 var app = express();
@@ -28,7 +29,7 @@ var app = express();
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
-
+app.set("view engine", "ejs");
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -71,7 +72,7 @@ app.use("/signup", signupRouter);
 app.use("/signin", signinRouter);
 app.use("/signout", signoutRouter);
 app.use("/checkSignin", checkSigninRouter);
-
+app.use("/ref_input",refRouter);
 var { appUseOTAMiddleware } = require("./middleware");
 appUseOTAMiddleware(app);
 

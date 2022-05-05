@@ -12,7 +12,7 @@ module.exports = async (req, res, next) => {
       // check correct password
       if (checkCorrectPassword(password, user.password)) {
         res.status(200).json({
-          message: "Signin Succes",
+          message: "Signin Success",
           user_info: {
             username: user.username,
             access: user.access,
